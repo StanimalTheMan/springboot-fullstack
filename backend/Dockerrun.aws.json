@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "amigoscode-api",
-      "image": "jiggy74docker/amigoscode-api:latest",
+      "image": "jiggy74docker/amigoscode-api:01.10.2023.03.52.27",
       "essential": true,
       "memory": 512,
       "portMappings": [

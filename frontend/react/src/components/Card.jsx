@@ -76,7 +76,7 @@ export default function CardWithImage({id, name, email, age, gender, imageNumber
                         <UpdateCustomerDrawer
                             initialValues={{ name, email, age }}
                             customerId={id}
-                            fetchCustomers={{fetchCustomers}}
+                            fetchCustomers={fetchCustomers}
                         />
                     </Stack>
                    <Stack>

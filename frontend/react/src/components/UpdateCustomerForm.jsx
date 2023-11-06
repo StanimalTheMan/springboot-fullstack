@@ -87,7 +87,7 @@ const UpdateCustomerForm = ({ fetchCustomers, initialValues, customerId }) => {
                             />
 
 
-                            <Button disabled={!(isValid && dirty) || isSubmitting} type="submit">Submit</Button>
+                            <Button isDisabled={!(isValid && dirty) || isSubmitting} type="submit">Submit</Button>
                         </Stack>
                     </Form>
                 )}

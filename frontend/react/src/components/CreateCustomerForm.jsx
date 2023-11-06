@@ -44,6 +44,7 @@ const CreateCustomerForm = ({ fetchCustomers }) => {
     return (
         <>
             <Formik
+                validateOnMount={true}
                 initialValues={{
                     name: '',
                     email: '',
@@ -119,7 +120,7 @@ const CreateCustomerForm = ({ fetchCustomers }) => {
                                 <option value="FEMALE">Female</option>
                             </MySelect>
 
-                            <Button disabled={!isValid || isSubmitting} type="submit">Submit</Button>
+                            <Button isDisabled={!isValid || isSubmitting} type="submit">Submit</Button>
                         </Stack>
                     </Form>
                 )}

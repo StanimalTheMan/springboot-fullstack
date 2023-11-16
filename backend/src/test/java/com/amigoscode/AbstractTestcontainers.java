@@ -12,29 +12,28 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import javax.sql.DataSource;
-
 @Testcontainers
 public abstract class AbstractTestcontainers {
-
     @BeforeAll
     static void beforeAll() {
-        Flyway flyway = Flyway.configure().dataSource(
-                postgreSQLContainer.getJdbcUrl(),
-                postgreSQLContainer.getUsername(),
-                postgreSQLContainer.getPassword()
-        ).load();
+        Flyway flyway = Flyway
+                .configure()
+                .dataSource(
+                        postgreSQLContainer.getJdbcUrl(),
+                        postgreSQLContainer.getUsername(),
+                        postgreSQLContainer.getPassword()
+                ).load();
         flyway.migrate();
     }
-
     @Container
     protected static final PostgreSQLContainer<?> postgreSQLContainer =
             new PostgreSQLContainer<>("postgres:latest")
                     .withDatabaseName("amigoscode-dao-unit-test")
                     .withUsername("amigoscode")
                     .withPassword("password");
-
     @DynamicPropertySource
-    private static void registerDataSourceProperties(DynamicPropertyRegistry registry) {
+    private static void registerDataSourceProperties(
+            DynamicPropertyRegistry registry) {
         registry.add(
                 "spring.datasource.url",
                 postgreSQLContainer::getJdbcUrl
@@ -48,7 +47,6 @@ public abstract class AbstractTestcontainers {
                 postgreSQLContainer::getPassword
         );
     }
-
     private static DataSource getDataSource() {
         return DataSourceBuilder.create()
                 .driverClassName(postgreSQLContainer.getDriverClassName())
@@ -57,10 +55,8 @@ public abstract class AbstractTestcontainers {
                 .password(postgreSQLContainer.getPassword())
                 .build();
     }
-
     protected static JdbcTemplate getJdbcTemplate() {
         return new JdbcTemplate(getDataSource());
     }
-
     protected static final Faker FAKER = new Faker();
 }

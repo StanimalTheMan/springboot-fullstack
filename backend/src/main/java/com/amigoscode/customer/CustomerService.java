@@ -35,7 +35,9 @@ public class CustomerService {
         return customerDao.selectCustomerById(id)
                 .map(customerDTOMapper)
                 .orElseThrow(
-                        () -> new ResourceNotFoundException("customer with id [%s] not found".formatted(id)));
+                        () -> new ResourceNotFoundException(
+                                "customer with id [%s] not found".formatted(id)
+                        ));
 
     }
 

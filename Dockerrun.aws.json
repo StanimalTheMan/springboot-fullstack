@@ -15,7 +15,7 @@
     },
     {
       "name": "amigoscode-api",
-      "image": "jiggy74docker/amigoscode-api:29.11.2023.00.04.05",
+      "image": "jiggy74docker/amigoscode-api:29.11.2023.01.11.25",
       "essential": true,
       "memory": 512,
       "portMappings": [

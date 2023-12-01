@@ -19,8 +19,8 @@ import {
 } from '@chakra-ui/react';
 
 import {useRef} from "react";
-import {deleteCustomer} from "../services/client.js";
-import {errorNotification, successNotification} from "../services/notification.js";
+import {deleteCustomer} from "../../services/client.js";
+import {errorNotification, successNotification} from "../../services/notification.js";
 import UpdateCustomerDrawer from "./UpdateCustomerDrawer.jsx";
 
 export default function CardWithImage({id, name, email, age, gender, imageNumber, fetchCustomers }) {
@@ -116,7 +116,6 @@ export default function CardWithImage({id, name, email, age, gender, imageNumber
                                        </Button>
                                        <Button colorScheme='red' onClick={() => {
                                            deleteCustomer(id).then(res => {
-                                               console.log(res)
                                                successNotification(
                                                    'Customer deleted',
                                                    `${name} was successfully deleted`
@@ -124,7 +123,6 @@ export default function CardWithImage({id, name, email, age, gender, imageNumber
                                                fetchCustomers();
 
                                            }).catch(err => {
-                                               console.log(err);
                                                errorNotification(
                                                    err.code,
                                                    err.response.data.message

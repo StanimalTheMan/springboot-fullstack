@@ -3,7 +3,7 @@
   "containerDefinitions": [
     {
       "name": "amigoscode-react",
-      "image": "jiggy74docker/amigoscode-react:07.11.2023.22.29.39",
+      "image": "jiggy74docker/amigoscode-react:01.12.2023.17.16.13",
       "essential": true,
       "memory": 256,
       "portMappings": [

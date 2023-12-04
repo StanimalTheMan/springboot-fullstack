@@ -8,14 +8,14 @@
       "memory": 512,
       "portMappings": [
         {
-          "hostPort": 80,
+          "hostPort": 8080,
           "containerPort": 8080
         }
       ],
       "environment": [
         {
           "name": "SPRING_DATASOURCE_URL",
-          "value": "jdbc:postgresql://awseb-e-favxqftapd-stack-awsebrdsdatabase-3acypecswfv9.cfseizkjgpr2.us-east-1.rds.amazonaws.com:5432/ebdb"
+          "value": "jdbc:postgresql://awseb-e-pv7h3mrdmt-stack-awsebrdsdatabase-ls2zsizxycbk.cfseizkjgpr2.us-east-1.rds.amazonaws.com:5432/customer"
         }
       ]
     }

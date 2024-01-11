@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -7,14 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular';
-  clickCount = 0;
-  lastCreatedElement = '';
 
-  handleChildClick() {
-    this.clickCount++;
-  }
+  constructor(
+    private router: Router
+  ) {}
 
-  displayLastCreatedElement(element: string) {
-    this.lastCreatedElement = element;
+  navigateToPage3() {
+    this.router.navigate(['page-3']);
   }
 }

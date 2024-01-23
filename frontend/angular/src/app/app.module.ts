@@ -6,17 +6,21 @@ import {AppComponent} from './app.component';
 import {FormsModule} from "@angular/forms";
 import {InputTextModule} from "primeng/inputtext";
 import { CustomerComponent } from './components/customer/customer.component';
+import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
+import {AvatarModule} from "primeng/avatar";
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerComponent
+    CustomerComponent,
+    MenuBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    InputTextModule
+    InputTextModule,
+    AvatarModule
   ],
   providers: [
   ],

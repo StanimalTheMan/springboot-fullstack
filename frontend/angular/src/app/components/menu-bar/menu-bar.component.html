@@ -10,7 +10,8 @@
   </p-avatar>
 </div>
 <div>
-  <p *ngFor="let item of menu">
-    {{ item.label }}
-  </p>
+  <app-menu-item *ngFor="let item of menu"
+                 [menuItem] = "item"
+  >
+  </app-menu-item>
 </div>

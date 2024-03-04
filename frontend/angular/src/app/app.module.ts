@@ -15,6 +15,7 @@ import {RippleModule} from "primeng/ripple";
 import {MenuModule} from "primeng/menu";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SidebarModule} from "primeng/sidebar";
+import {ManageCustomerComponent} from "./components/manage-customer/manage-customer.component";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {SidebarModule} from "primeng/sidebar";
     CustomerComponent,
     MenuBarComponent,
     MenuItemComponent,
-    HeaderBarComponent
+    HeaderBarComponent,
+    ManageCustomerComponent
   ],
   imports: [
     BrowserModule,

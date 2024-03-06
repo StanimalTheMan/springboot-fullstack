@@ -16,6 +16,7 @@ import {MenuModule} from "primeng/menu";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SidebarModule} from "primeng/sidebar";
 import {ManageCustomerComponent} from "./components/manage-customer/manage-customer.component";
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {ManageCustomerComponent} from "./components/manage-customer/manage-custo
     MenuBarComponent,
     MenuItemComponent,
     HeaderBarComponent,
-    ManageCustomerComponent
+    ManageCustomerComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

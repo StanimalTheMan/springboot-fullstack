@@ -13,6 +13,6 @@ export class AccessGuardService implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot)
     :Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-    return false;
+    return true;
   }
 }

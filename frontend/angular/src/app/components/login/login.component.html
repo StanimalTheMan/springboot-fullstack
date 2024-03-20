@@ -11,6 +11,12 @@
         ></p-avatar>
         <h1>Sign in to your account</h1>
       </div>
+      <p-message
+        *ngIf="errorMsg"
+        severity="error"
+        [text]="errorMsg"
+        styleClass="mb-2"
+      ></p-message>
       <div class="field">
         <label for="email">Email</label>
         <input

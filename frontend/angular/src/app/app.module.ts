@@ -18,6 +18,7 @@ import {SidebarModule} from "primeng/sidebar";
 import {ManageCustomerComponent} from "./components/manage-customer/manage-customer.component";
 import { LoginComponent } from './components/login/login.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MessageModule} from "primeng/message";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {HttpClientModule} from "@angular/common/http";
     RippleModule,
     MenuModule,
     SidebarModule,
-    HttpClientModule
+    HttpClientModule,
+    MessageModule
   ],
   providers: [
   ],

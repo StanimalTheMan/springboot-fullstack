@@ -9,15 +9,20 @@ import {AuthenticationService} from "../../services/authentication/authenticatio
 })
 export class LoginComponent {
   authenticationRequest: AuthenticationRequest = {};
+  errorMsg = '';
 
   constructor(
     private authenticationService: AuthenticationService
   ) {}
   login() {
+    this.errorMsg = '';
     this.authenticationService.login(this.authenticationRequest)
       .subscribe({
         next: (authenticationResponse) => {
           console.log(authenticationResponse);
+        },
+        error: (err) => {
+          this.errorMsg = 'Login and / or password is incorrect';
         }
       });
   }

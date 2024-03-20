@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {SidebarModule} from "primeng/sidebar";
 import {ManageCustomerComponent} from "./components/manage-customer/manage-customer.component";
 import { LoginComponent } from './components/login/login.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { LoginComponent } from './components/login/login.component';
     ButtonModule,
     RippleModule,
     MenuModule,
-    SidebarModule
+    SidebarModule,
+    HttpClientModule
   ],
   providers: [
   ],

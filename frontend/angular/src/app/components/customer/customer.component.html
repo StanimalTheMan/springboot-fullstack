@@ -24,8 +24,8 @@
         (click)="display=true"
       >
       </button>
-      <div>
-        customers will be displayed here
+      <div *ngFor="let customer of customers">
+        {{ customer.name + ' ' + customer.age }}
       </div>
     </div>
   </div>

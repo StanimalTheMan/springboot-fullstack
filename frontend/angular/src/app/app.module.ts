@@ -20,6 +20,11 @@ import { LoginComponent } from './components/login/login.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {MessageModule} from "primeng/message";
 import {HttpInterceptorService} from "./services/interceptor/http-interceptor.service";
+import { CustomerCardComponent } from './components/customer-card/customer-card.component';
+import {CardModule} from "primeng/card";
+import {BadgeModule} from "primeng/badge";
+import {ToastModule} from "primeng/toast";
+import {MessageService} from "primeng/api";
 
 @NgModule({
   declarations: [
@@ -29,7 +34,8 @@ import {HttpInterceptorService} from "./services/interceptor/http-interceptor.se
     MenuItemComponent,
     HeaderBarComponent,
     ManageCustomerComponent,
-    LoginComponent
+    LoginComponent,
+    CustomerCardComponent
   ],
   imports: [
     BrowserModule,
@@ -43,14 +49,18 @@ import {HttpInterceptorService} from "./services/interceptor/http-interceptor.se
     MenuModule,
     SidebarModule,
     HttpClientModule,
-    MessageModule
+    MessageModule,
+    CardModule,
+    BadgeModule,
+    ToastModule
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: HttpInterceptorService,
       multi: true
-    }
+    },
+    MessageService
   ],
   bootstrap: [AppComponent]
 })

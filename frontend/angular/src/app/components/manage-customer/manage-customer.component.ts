@@ -12,6 +12,8 @@ export class ManageCustomerComponent {
   customer: CustomerRegistrationRequest = {};
   @Output()
   submit: EventEmitter<CustomerRegistrationRequest> = new EventEmitter<CustomerRegistrationRequest>();
+  @Output()
+  cancel: EventEmitter<void> = new EventEmitter<void>();
 
   get isCustomerValid(): boolean {
     return this.hasLength(this.customer.name) &&
@@ -27,5 +29,9 @@ export class ManageCustomerComponent {
 
   onSubmit() {
     this.submit.emit(this.customer);
+  }
+
+  onCancel() {
+    this.cancel.emit();
   }
 }

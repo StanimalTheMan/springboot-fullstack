@@ -51,4 +51,9 @@ export class CustomerComponent implements OnInit {
         });
     }
   }
+
+  cancel() {
+    this.display = false;
+    this.customer = {};
+  }
 }

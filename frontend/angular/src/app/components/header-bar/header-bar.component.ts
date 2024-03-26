@@ -1,6 +1,8 @@
 import {Component, Input} from '@angular/core';
 import {MenuItem} from "primeng/api";
 import {CustomerDTO} from "../../models/customer-dto";
+import {AuthenticationResponse} from "../../models/authentication-response";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-header-bar',
@@ -8,6 +10,10 @@ import {CustomerDTO} from "../../models/customer-dto";
   styleUrls: ['./header-bar.component.scss']
 })
 export class HeaderBarComponent {
+
+  constructor(
+    private router: Router
+  ) {}
 
   @Input()
   customer: CustomerDTO = {};
@@ -25,15 +31,33 @@ export class HeaderBarComponent {
     },
     {
       label: 'Sign out',
-      icon: 'pi pi-sign-out'
+      icon: 'pi pi-sign-out',
+      command: () => {
+        localStorage.clear();
+        this.router.navigate(['login']);
+      }
     },
   ];
 
   get username(): string {
-    return '--'
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const authResponse: AuthenticationResponse = JSON.parse(storedUser);
+      if (authResponse && authResponse.customerDTO && authResponse.customerDTO.username) {
+        return authResponse.customerDTO.username;
+      }
+    }
+    return '--';
   }
 
   get userRole(): string {
+    const storedUser = localStorage.getItem('user');
+    if (storedUser) {
+      const authResponse: AuthenticationResponse = JSON.parse(storedUser);
+      if (authResponse && authResponse.customerDTO && authResponse.customerDTO.roles) {
+        return authResponse.customerDTO.roles[0];
+      }
+    }
     return '--'
   }
 

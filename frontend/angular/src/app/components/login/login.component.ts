@@ -29,4 +29,8 @@ export class LoginComponent {
         }
       });
   }
+
+  register() {
+    this.router.navigate(['register']);
+  }
 }

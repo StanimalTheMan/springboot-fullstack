@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {MenuItem} from "primeng/api";
+import {CustomerDTO} from "../../models/customer-dto";
 
 @Component({
   selector: 'app-header-bar',
@@ -7,6 +8,9 @@ import {MenuItem} from "primeng/api";
   styleUrls: ['./header-bar.component.scss']
 })
 export class HeaderBarComponent {
+
+  @Input()
+  customer: CustomerDTO = {};
   items: Array<MenuItem> = [
     {
       label: 'Profile',
@@ -24,5 +28,13 @@ export class HeaderBarComponent {
       icon: 'pi pi-sign-out'
     },
   ];
+
+  get username(): string {
+    return '--'
+  }
+
+  get userRole(): string {
+    return '--'
+  }
 
 }

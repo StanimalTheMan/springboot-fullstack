@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {CustomerDTO} from "../../models/customer-dto";
 import {CustomerService} from "../../services/customer/customer.service";
 import {CustomerRegistrationRequest} from "../../models/customer-registration-request";
-import {Confirmation, ConfirmationService, MessageService} from "primeng/api";
+import {ConfirmationService, MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-customer',
@@ -12,6 +12,7 @@ import {Confirmation, ConfirmationService, MessageService} from "primeng/api";
 export class CustomerComponent implements OnInit {
 
   display = false;
+  operation: 'create' | 'update' = 'create';
   customers: Array<CustomerDTO> = [];
   customer: CustomerRegistrationRequest = {};
 
@@ -36,26 +37,45 @@ export class CustomerComponent implements OnInit {
 
   save(customer: CustomerRegistrationRequest) {
     if (customer) {
-      this.customerService.registerCustomer(customer)
-        .subscribe({
-          next: () => {
-            this.findAllCustomers();
-            this.display = false;
-            this.customer = {};
-            this.messageService.add(
-              {severity:'success',
-                summary: 'Customer saved',
-                detail: `Customer ${customer.name} was successfully saved`
-              }
-            );
-          }
-        });
+      if (this.operation === 'create') {
+        this.customerService.registerCustomer(customer)
+          .subscribe({
+            next: () => {
+              this.findAllCustomers();
+              this.display = false;
+              this.customer = {};
+              this.messageService.add(
+                {severity:'success',
+                  summary: 'Customer saved',
+                  detail: `Customer ${customer.name} was successfully saved`
+                }
+              );
+            }
+          });
+      } else if (this.operation === 'update') {
+        this.customerService.updateCustomer(customer.id, customer)
+          .subscribe({
+            next: () => {
+              this.findAllCustomers();
+              this.display = false;
+              this.customer = {};
+              this.messageService.add(
+                {
+                  severity:'success',
+                  summary: 'Customer updated',
+                  detail: `Customer ${customer.name} was successfully updated`
+                }
+              );
+            }
+          })
+      }
     }
   }
 
   cancel() {
     this.display = false;
     this.customer = {};
+    this.operation = 'create';
   }
 
   deleteCustomer(customer: CustomerDTO) {
@@ -78,5 +98,17 @@ export class CustomerComponent implements OnInit {
           });
       }
     });
+  }
+
+  updateCustomer(customerDTO: CustomerDTO) {
+    this.display = true;
+    this.customer = customerDTO;
+    this.operation = 'update';
+  }
+
+  createCustomer() {
+    this.display = true;
+    this.customer = {};
+    this.operation = 'create'
   }
 }

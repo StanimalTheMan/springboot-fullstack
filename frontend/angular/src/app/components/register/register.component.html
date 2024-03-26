@@ -45,7 +45,7 @@
           [(ngModel)]="customer.age"
           id="age"
           pInputText
-          placeholder="Jane"
+          placeholder="34"
           type="number"
           class="w-full"
         >
@@ -74,6 +74,7 @@
         </select>
       </div>
       <button
+        (click)="createAccount()"
         pButton
         label="Create an account"
         class="w-full"

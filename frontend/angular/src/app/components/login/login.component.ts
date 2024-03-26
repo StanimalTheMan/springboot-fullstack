@@ -25,7 +25,9 @@ export class LoginComponent {
           this.router.navigate(['customers']);
         },
         error: (err) => {
-          this.errorMsg = 'Login and / or password is incorrect';
+          if (err.error.statusCode === 401) {
+            this.errorMsg = 'Login and / or password is incorrect';
+          }
         }
       });
   }

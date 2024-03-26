@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
+import {CustomerRegistrationRequest} from "../../models/customer-registration-request";
 
 @Component({
   selector: 'app-register',
@@ -8,10 +9,14 @@ import {Router} from "@angular/router";
 })
 export class RegisterComponent {
   errorMsg = '';
+  customer: CustomerRegistrationRequest = {};
+
   constructor(
     private router: Router
   ) {
   }
+
+
 
   login() {
     this.router.navigate(['login'])

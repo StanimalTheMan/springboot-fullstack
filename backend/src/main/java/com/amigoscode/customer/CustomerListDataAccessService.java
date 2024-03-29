@@ -72,6 +72,11 @@ public class CustomerListDataAccessService implements CustomerDao {
     }
 
     @Override
+    public void updateCustomerProfileImageId(String profileImageId, Integer customerId) {
+        // TODO: Implement this 😅
+    }
+
+    @Override
     public boolean existsCustomerWithEmail(String email) {
         return customers.stream()
                 .anyMatch(c -> c.getEmail().equals(email));
